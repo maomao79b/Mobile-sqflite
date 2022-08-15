@@ -12,11 +12,30 @@ class DiscoveryPage extends StatefulWidget {
 }
 
 class _DiscoveryPageState extends State<DiscoveryPage> {
+  getAllData() async {
+    prolist = <ProfileModel>[];
+    var service = DBService();
+    var profiles = await service.readData();
+    profiles.forEach((pro){
+      print(pro);
+      setState((){
+        var proModel = ProfileModel();
+        proModel.id = pro['id'];
+        proModel.firstname = pro['fisrtname'];
+        proModel.lastname = pro['lastname'];
+        proModel.email = pro['email'];
+        proModel.phone = pro['phone'];
+        proModel.image = pro['image'];
+        prolist.add(proModel);
+      });
+    });
+  }
   void initState(){
     super.initState();
     getAllData();
   }
-  List<ProfileModel> prolist = new List.filled(0, ProfileModel());
+  List<ProfileModel> prolist = new List.filled(0, new ProfileModel());
+  // List<ProfileModel> prolist = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,23 +110,5 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
         ): Container(),
       ),
     );
-  }
-  getAllData() async {
-    prolist = <ProfileModel>[];
-    var service = DBService();
-    var profiles = await service.readData();
-    profiles.forEach((pro){
-      print(pro);
-      setState((){
-        var proModel = ProfileModel();
-        proModel.id = pro['id'];
-        proModel.firstname = pro['fisrtname'];
-        proModel.lastname = pro['lastname'];
-        proModel.email = pro['email'];
-        proModel.phone = pro['phone'];
-        proModel.image = pro['image'];
-        prolist.add(proModel);
-      });
-    });
   }
 }

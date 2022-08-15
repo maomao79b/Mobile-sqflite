@@ -69,13 +69,13 @@ class _Cl_createState extends State<Cl_create> {
                       child: SizedBox(
                         width: 150,
                         height: 50,
-                        child: RaisedButton(
-                            color: Colors.blue,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(30),
-                              ),
-                            ),
+                        child: ElevatedButton(
+                            // color: Colors.blue,
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: BorderRadius.all(
+                            //     Radius.circular(30),
+                            //   ),
+                            // ),
                             child: Text(
                                 "Add data",
                               style: TextStyle(

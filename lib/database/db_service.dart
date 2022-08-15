@@ -24,6 +24,7 @@ class DBService{
   }
 
   insertData(data) async{
+    print(data);
     var connection = await database;
     return await connection?.insert(tableName, data);
   }
