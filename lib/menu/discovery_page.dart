@@ -47,7 +47,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Discovery"),
+        title: const Text("Profile List"),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -79,32 +79,29 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 subtitle: Text(prolist[index].lastname),
                 trailing: Wrap(
                   children: [
-                    // IconButton(
-                    //   icon: Icon(Icons.edit),
-                    //   onPressed: (){
-                    //     Navigator.push(
-                    //       context,
-                    //       new MaterialPageRoute(
-                    //         builder: (context) => new Cl_edit.setText(prolist, index),
-                    //       ),
-                    //     ).then((value){
-                    //       if (value == null) {
-                    //       }else{
-                    //         prolist = value;
-                    //       }
-                    //       setState((){});
-                    //     });
-                    //   },
-                    // ),
-                    // IconButton(
-                    //   icon: Icon(Icons.delete),
-                    //   onPressed: (){
-                    //     prolist.removeWhere(
-                    //             (element) => element.id == prolist[index].id
-                    //     );
-                    //     setState((){});
-                    //   },
-                    // )
+                    IconButton(
+                      icon: Icon(Icons.edit),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                            builder: (context) => new Cl_edit(prolist[index].id),
+                          ),
+                        ).then((value){
+                          getAllData();
+                          setState((){});
+                        });
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: ()async{
+                        var service = DBService();
+                        await service.deleteData(prolist[index].id);
+                        getAllData();
+                        setState((){});
+                      },
+                    )
                   ],
                 ),
               );

@@ -30,4 +30,20 @@ class DBService{
     var connection = await database;
     return await connection?.insert(tableName, data);
   }
+
+  readDataById(itemId)async{
+    var connection = await database;
+    return await connection?.query(tableName, where: "id=?", whereArgs: [itemId]);
+  }
+
+  updateData(profile, id)async{
+    print("update");
+    var connection = await database;
+    return await connection?.update(tableName, profile, where: "id=?", whereArgs: [id]);
+  }
+
+  deleteData(profileId)async{
+    var connection = await database;
+    return await connection?.delete(tableName, where: "id=?", whereArgs: [profileId]);
+  }
 }

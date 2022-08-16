@@ -26,7 +26,7 @@ class _Cl_createState extends State<Cl_create> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Create Form"),
+        title: const Text("Add Profile"),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
@@ -56,11 +56,11 @@ class _Cl_createState extends State<Cl_create> {
                     }
                   },
                 ),
-                textHeader("Profile"),
-                textFormF("Global", "Input global name of insect",firstname),
-                textFormF("Thai name", "Input thai name of insect",lastname),
-                textFormF("Type of insect", "Input type of insect",email),
-                textFormF("Season found", "Input season found of insect",phone),
+                // textHeader("Profile"),
+                textFormF("Fisrtname", "Input Firstname",firstname),
+                textFormF("Lastname", "Input Lastname",lastname),
+                textFormF("Email", "Input email",email),
+                textFormF("Phone", "Input phone",phone),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
