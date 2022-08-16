@@ -10,7 +10,7 @@ void main() {
   // runApp(MultiProvider(providers: [
   //   ChangeNotifierProvider(create: (_) => CovidTrackerService())
   // ], child: MyApp()));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

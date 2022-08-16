@@ -1,5 +1,5 @@
 class ProfileModel{
-  int? id=0;
+  late int id;
   late String firstname;
   late String lastname;
   late String email;
@@ -8,7 +8,7 @@ class ProfileModel{
 
   profileMap(){
     var mapping = Map<String, dynamic>();
-    mapping['id'] = id;
+    // mapping['id'] = id;
     mapping['firstname'] = firstname;
     mapping['lastname'] = lastname;
     mapping['email'] = email;

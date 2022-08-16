@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 class DBService{
   late DatabaseConnection _databaseConnection;
-  String tableName = 'profileFB';
+  String tableName = 'profileDB';
 
   DBService(){
     _databaseConnection = DatabaseConnection();
@@ -11,7 +11,9 @@ class DBService{
   static Database? _database;
 
   Future<Database?> get database async{
+    // print("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
     if(_database != null) return _database;
+    // print("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
     _database = await _databaseConnection.setDatabase();
     return _database;
   }
@@ -24,7 +26,7 @@ class DBService{
   }
 
   insertData(data) async{
-    print(data);
+    // print(data);
     var connection = await database;
     return await connection?.insert(tableName, data);
   }

@@ -14,8 +14,8 @@ class Cl_create extends StatefulWidget {
 
 class _Cl_createState extends State<Cl_create> {
 
-  var id = TextEditingController();
-  var fisrtname = TextEditingController();
+  // var id = TextEditingController();
+  var firstname = TextEditingController();
   var lastname = TextEditingController();
   var email = TextEditingController();
   var phone = TextEditingController();
@@ -26,16 +26,16 @@ class _Cl_createState extends State<Cl_create> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Form"),
+        title: const Text("Create Form"),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
         child: Form(
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                (img == null)?
-                Icon(Icons.insert_photo,
+                (img == null)
+                    ?const Icon(Icons.insert_photo,
                   size:200,
                 )
                     : Image.file(img),
@@ -57,7 +57,7 @@ class _Cl_createState extends State<Cl_create> {
                   },
                 ),
                 textHeader("Profile"),
-                textFormF("Global", "Input global name of insect",fisrtname),
+                textFormF("Global", "Input global name of insect",firstname),
                 textFormF("Thai name", "Input thai name of insect",lastname),
                 textFormF("Type of insect", "Input type of insect",email),
                 textFormF("Season found", "Input season found of insect",phone),
@@ -76,7 +76,7 @@ class _Cl_createState extends State<Cl_create> {
                             //     Radius.circular(30),
                             //   ),
                             // ),
-                            child: Text(
+                            child: const Text(
                                 "Add data",
                               style: TextStyle(
                                 color:  Colors.white,
@@ -92,12 +92,13 @@ class _Cl_createState extends State<Cl_create> {
                               ProfileModel profile = new ProfileModel();
                               // count += 1;
                               // profile.id = count;
-                              profile.firstname = fisrtname.text;
+                              profile.firstname = firstname.text;
                               profile.lastname = lastname.text;
                               profile.email = email.text;
                               profile.phone = phone.text;
                               profile.image = image.text;
                               var data = profile.profileMap();
+
                               service.insertData(data);
                               Navigator.pop(context);
                           },
