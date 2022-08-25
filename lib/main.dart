@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobile_sqlite/menu/home_page.dart';
-import 'package:mobile_sqlite/menu/discovery_page.dart';
-import 'package:mobile_sqlite/menu/libarry_page.dart';
-import 'package:mobile_sqlite/menu/feed_page.dart';
-import 'package:provider/provider.dart';
+import 'package:mobile_sqlite/menu/profile_list.dart';
+import 'package:mobile_sqlite/menu/autoComplete.dart';
+import 'package:mobile_sqlite/menu/ImageSlider.dart';
 
 void main() {
   // runApp(MultiProvider(providers: [
@@ -52,12 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
           //     label: 'Home',
           //     backgroundColor: Colors.greenAccent),
           BottomNavigationBarItem(
-              icon: Icon(Icons.location_pin),
-              label: 'Discovery',
+              icon: Icon(Icons.list_alt_outlined),
+              label: 'Profile List',
               backgroundColor: Colors.green),
           BottomNavigationBarItem(
               icon: Icon(Icons.library_books),
-              label: 'Library',
+              label: 'AutoComplete',
               backgroundColor: Colors.orange),
           BottomNavigationBarItem(
               icon: Icon(Icons.people),
